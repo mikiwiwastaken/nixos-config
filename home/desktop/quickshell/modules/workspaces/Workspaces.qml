@@ -68,7 +68,7 @@ Row {
                 }
             }
 
-            // Pulse while the workspace is urgent
+            // Pulse while urgent, like waybar's blinking urgent state
             SequentialAnimation on opacity {
                 running: cell.urgent
                 loops: Animation.Infinite

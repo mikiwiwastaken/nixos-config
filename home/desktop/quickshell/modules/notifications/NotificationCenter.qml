@@ -122,15 +122,6 @@ Item {
         }
     }
 
-    IpcHandler {
-        target: root.screen === Quickshell.screens[0] ? "notifications" : "notifications-" + root.screen.name
-
-        function toggle(): void {
-            if (root.screen === Quickshell.screens[0])
-                popup.visible = !popup.visible;
-        }
-    }
-
     PopupWindow {
         id: toast
 
