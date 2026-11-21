@@ -20,6 +20,6 @@ sudo nixos-rebuild switch --flake .#$(hostname)
 
 ## Notes
 
-- Change `username` and `hostname` near the top of `flake.nix` when using this configuration on another machine.
+- Change `username` and `hostname` in `flake.nix`.
 - Tested in a VM.
 - `hardware-configuration.nix` is machine-specific.
