@@ -5,8 +5,6 @@
     enable = true;
 
     settings = {
-      "$music" = "$HOME/.local/bin/music";
-
       general = {
         hide_cursor = true;
         ignore_empty_input = true;
@@ -19,6 +17,29 @@
           blur_passes = 3;
           blur_size = 8;
           brightness = 0.4;
+        }
+      ];
+
+      label = [
+        {
+          monitor = "";
+          text = "$TIME";
+          color = "rgb(205, 214, 244)";
+          font_size = 90;
+          font_family = "JetBrainsMono Nerd Font ExtraBold";
+          position = "0, 160";
+          halign = "center";
+          valign = "center";
+        }
+        {
+          monitor = "";
+          text = ''cmd[update:60000] date +"%A, %d/%m/%Y"'';
+          color = "rgba(205, 214, 244, 0.8)";
+          font_size = 22;
+          font_family = "JetBrainsMono Nerd Font";
+          position = "0, 70";
+          halign = "center";
+          valign = "center";
         }
       ];
 
@@ -42,88 +63,6 @@
           position = "0, -40";
           halign = "center";
           valign = "center";
-        }
-      ];
-
-      image = [
-        {
-          monitor = "";
-          path = "";
-          reload_time = 0;
-          reload_cmd = "$music --arturl";
-          size = 110;
-          rounding = 18;
-          border_size = 2;
-          border_color = "rgba(180, 190, 254, 0.5)";
-          position = "-155, -190";
-          halign = "center";
-          valign = "center";
-          zindex = 5;
-        }
-      ];
-
-      label = [
-        # Clock
-        {
-          monitor = "";
-          text = "$TIME";
-          color = "rgb(205, 214, 244)";
-          font_size = 90;
-          font_family = "JetBrainsMono Nerd Font ExtraBold";
-          position = "0, 160";
-          halign = "center";
-          valign = "center";
-        }
-
-        # Date (refreshed every 60 s)
-        {
-          monitor = "";
-          text = ''cmd[update:60000] date +"%A, %d/%m/%Y"'';
-          color = "rgba(205, 214, 244, 0.8)";
-          font_size = 22;
-          font_family = "JetBrainsMono Nerd Font";
-          position = "0, 70";
-          halign = "center";
-          valign = "center";
-        }
-
-        # Title
-        {
-          monitor = "";
-          text = "cmd[update:1000] $music --title";
-          color = "rgb(205, 214, 244)";
-          font_size = 14;
-          font_family = "JetBrainsMono Nerd Font ExtraBold";
-          position = "63, -164";
-          halign = "center";
-          valign = "center";
-          zindex = 5;
-        }
-
-        # Artist
-        {
-          monitor = "";
-          text = "cmd[update:1000] $music --artist";
-          color = "rgb(166, 173, 200)";
-          font_size = 11;
-          font_family = "JetBrainsMono Nerd Font";
-          position = "63, -190";
-          halign = "center";
-          valign = "center";
-          zindex = 5;
-        }
-
-        # Status icon + elapsed / total time
-        {
-          monitor = "";
-          text = ''cmd[update:1000] echo "$($music --status)  $($music --time)"'';
-          color = "rgb(180, 190, 254)";
-          font_size = 12;
-          font_family = "JetBrainsMono Nerd Font";
-          position = "63, -216";
-          halign = "center";
-          valign = "center";
-          zindex = 5;
         }
       ];
     };

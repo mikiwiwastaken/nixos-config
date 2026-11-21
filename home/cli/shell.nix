@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, hostname, ... }:
 
 {
   programs.zsh = {
@@ -17,7 +17,7 @@
     };
 
     shellAliases = {
-      rebuild = "sudo nixos-rebuild switch --flake ~/nixos#nixos";
+      rebuild = "sudo nixos-rebuild switch --flake ~/nixos#${hostname}";
       clear = "precmd() { precmd() { echo \"\" } } && command clear";
       ls = "eza --icons auto";
       cat = "bat";

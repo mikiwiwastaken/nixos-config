@@ -9,23 +9,29 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/nixos
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.mikiwi = {
-            imports = [
-              ./home/default.nix
-            ];
-          };
-        }
-      ];
+  outputs = { nixpkgs, home-manager, ... }:
+    let
+      username = "mikiwi";
+      hostname = "nixos";
+    in {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit username hostname; };
+        modules = [
+          ./hosts/nixos
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
+            home-manager.extraSpecialArgs = { inherit username hostname; };
+            home-manager.users.${username} = {
+              imports = [
+                ./home/default.nix
+              ];
+            };
+          }
+        ];
+      };
     };
-  };
 }

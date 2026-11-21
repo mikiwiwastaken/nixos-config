@@ -3,9 +3,7 @@
 {
   imports = [
     ./hypr
-    ./waybar.nix
-    ./wofi.nix
-    ./swaync.nix
+    ./quickshell
     ./hyprpaper.nix
     ./hypridle.nix
     ./hyprlock.nix

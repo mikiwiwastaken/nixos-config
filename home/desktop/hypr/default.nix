@@ -19,26 +19,20 @@ in
 
   home.packages = with pkgs; [
     hyprpolkitagent
-    swayosd
     hyprpaper
     hyprlock
     hypridle
     hyprpicker
-    hyprsunset
 
+    brightnessctl
+    wireplumber
+    pulseaudio
     grim
     slurp
     wf-recorder
     libnotify
     wl-clipboard
     cliphist
-
-    brightnessctl
-    wireplumber
-    pulseaudio
-
-    pavucontrol
-    libqalculate
 
     nixos-artwork.wallpapers.catppuccin-mocha
   ];

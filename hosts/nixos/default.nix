@@ -1,4 +1,4 @@
-{ ... }:
+{ username, hostname, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # --- Host basics ---
-  networking.hostName = "nixos";
+  networking.hostName = hostname;
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -27,9 +27,9 @@
   };
 
   # --- User ---
-  users.users.mikiwi = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "mikiwi";
+    description = username;
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
