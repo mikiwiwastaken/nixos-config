@@ -24,9 +24,6 @@ in
     hypridle
     hyprpicker
 
-    brightnessctl
-    wireplumber
-    pulseaudio
     grim
     slurp
     wf-recorder

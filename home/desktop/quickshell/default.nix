@@ -10,4 +10,10 @@ in
     source = config.lib.file.mkOutOfStoreSymlink quickshellConfig;
     force = true;
   };
+
+  home.packages = with pkgs; [
+    brightnessctl
+    wireplumber
+    pulseaudio
+  ];
 }
