@@ -1,4 +1,4 @@
-# nixos-config
+# NixOS config
 
 My NixOS configuration using flakes and home manager.
 
