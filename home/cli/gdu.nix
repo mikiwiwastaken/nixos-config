@@ -1,0 +1,25 @@
+{ pkgs, ... }:
+
+{
+  home.packages = [ pkgs.gdu ];
+
+  xdg.configFile."gdu/gdu.yaml".text = ''
+    style:
+      selected-row:
+        text-color: "#1e1e2e"
+        background-color: "#cba6f7"
+      marked:
+        text-color: "#1e1e2e"
+        background-color: "#f9e2af"
+      header:
+        text-color: "#cdd6f4"
+        background-color: "#181825"
+      footer:
+        text-color: "#cdd6f4"
+        background-color: "#181825"
+        number-color: "#fab387"
+      result-row:
+        number-color: "#a6e3a1"
+        directory-color: "#89b4fa"
+  '';
+}

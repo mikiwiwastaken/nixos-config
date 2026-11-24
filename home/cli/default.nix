@@ -10,6 +10,8 @@
     ./bat.nix
     ./fzf.nix
     ./zoxide.nix
+    ./ripgrep.nix
+    ./gdu.nix
     ./btop.nix
     ./yazi.nix
     ./fastfetch.nix

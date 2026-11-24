@@ -1,38 +1,34 @@
 { pkgs, ... }:
 
 let
-  catppuccinCss = ''
-    @define-color accent_bg_color #cba6f7;
-    @define-color accent_color #cba6f7;
-    @define-color accent_fg_color #11111b;
-    @define-color window_bg_color #1e1e2e;
-    @define-color window_fg_color #cdd6f4;
-    @define-color view_bg_color #1e1e2e;
-    @define-color view_fg_color #cdd6f4;
-    @define-color headerbar_bg_color #181825;
-    @define-color headerbar_fg_color #cdd6f4;
-    @define-color card_bg_color #313244;
-    @define-color card_fg_color #cdd6f4;
-    @define-color popover_bg_color #313244;
-    @define-color popover_fg_color #cdd6f4;
-    @define-color sidebar_bg_color #181825;
-    @define-color sidebar_fg_color #cdd6f4;
-  '';
+  flavor = "mocha";
+  accent = "mauve";
+  themePkg = pkgs.catppuccin-gtk.override {
+    accents = [ accent ];
+    variant = flavor;
+    size = "standard";
+  };
 in
 {
-  gtk.iconTheme = {
-    name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme;
-  };
-
   gtk = {
     enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
+      name = "catppuccin-${flavor}-${accent}-standard";
+      package = themePkg;
     };
-    gtk3.extraCss = catppuccinCss;
-    gtk4.extraCss = catppuccinCss;
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        inherit flavor accent;
+      };
+    };
+  };
+
+  xdg.configFile."gtk-4.0" = {
+    source = "${themePkg}/share/themes/catppuccin-${flavor}-${accent}-standard/gtk-4.0";
+    recursive = true;
   };
 
   home.pointerCursor = {
@@ -43,5 +39,9 @@ in
     x11.enable = true;
   };
 
-  dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
 }

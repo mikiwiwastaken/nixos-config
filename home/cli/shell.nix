@@ -34,6 +34,7 @@
         --color=selected-bg:#45475A \
         --color=border:#6C7086,label:#CDD6F4
       '';
+      LS_COLORS = "$(vivid generate catppuccin-mocha)";
     };
 
     initContent = ''
@@ -53,4 +54,3 @@
     '';
   };
 }
-

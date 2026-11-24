@@ -17,6 +17,8 @@
       tab_bar_style = "powerline";
       tab_powerline_style = "angled";
       shell = "${pkgs.zsh}/bin/zsh";
+      selection_background = "#585B70";
+      selection_foreground = "none";
     };
   };
 }

@@ -2,44 +2,29 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
-			"mason-org/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"saghen/blink.cmp",
 			"b0o/SchemaStore.nvim",
 		},
 		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"bashls",
-					"yamlls",
-					"jsonls",
-					"taplo",
-					"terraformls",
-					"dockerls",
-					"docker_compose_language_service",
-					"pyright",
-					"ruff",
-					"lua_ls",
-					"marksman",
-					"sqlls",
-				},
-				automatic_enable = true,
-			})
+			local servers = {
+				"bashls",
+				"yamlls",
+				"jsonls",
+				"taplo",
+				"terraformls",
+				"dockerls",
+				"docker_compose_language_service",
+				"pyright",
+				"ruff",
+				"lua_ls",
+				"marksman",
+				"sqlls",
+			}
 
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					"stylua",
-					"shfmt",
-					"yamlfmt",
-					"prettier",
-					"sqlfluff",
-					"hadolint",
-					"shellcheck",
-					"yamllint",
-					"tflint",
-				},
-			})
+			for _, server in ipairs(servers) do
+				vim.lsp.config(server, {})
+				vim.lsp.enable(server)
+			end
 
 			vim.lsp.config("yamlls", {
 				settings = {
@@ -68,6 +53,20 @@ return {
 			vim.lsp.config("lua_ls", {
 				settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 			})
+
+			vim.lsp.config("rust_analyzer", {
+				cmd = { "rust-analyzer" },
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+						checkOnSave = true,
+					},
+				},
+			})
+
+			vim.lsp.enable("rust_analyzer")
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(ev)

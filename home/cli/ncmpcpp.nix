@@ -6,7 +6,7 @@
       # --- Connection ---
       mpd_host = "localhost";
       mpd_port = 6600;
-      mpd_music_dir = "${config.home.homeDirectory}/Music";
+      mpdMusicDir = "${config.home.homeDirectory}/Music";
       mpd_connection_timeout = 5;
 
       # --- Visualizer ---

@@ -26,6 +26,8 @@
     variant = "";
   };
 
+  services.openssh.enable = true;
+
   # --- User ---
   users.users.${username} = {
     isNormalUser = true;
