@@ -37,8 +37,8 @@
         "sidebar.revamp" = true;
         "sidebar.verticalTabs" = true;
         "sidebar.visibility" = "always-show";
-
         "browser.ctrlTab.sortByRecentlyUsed" = true;
+        "browser.toolbars.bookmarks.visibility" = "never";
 
         "browser.ai.control.default" = "blocked";
         "browser.ai.control.linkPreviewKeyPoints" = "blocked";

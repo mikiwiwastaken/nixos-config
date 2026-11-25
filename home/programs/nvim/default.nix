@@ -13,7 +13,7 @@
 
       go
       gopls
-      goimports
+      gotools
       delve
 
       bash-language-server
