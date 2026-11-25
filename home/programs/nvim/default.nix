@@ -11,6 +11,11 @@
       unzip
       tree-sitter
 
+      go
+      gopls
+      goimports
+      delve
+
       bash-language-server
       yaml-language-server
       vscode-langservers-extracted
@@ -35,6 +40,8 @@
       shellcheck
       yamllint
       tflint
+
+      terraform
     ];
   };
 

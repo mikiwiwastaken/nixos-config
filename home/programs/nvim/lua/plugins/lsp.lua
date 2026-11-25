@@ -19,6 +19,8 @@ return {
 				"lua_ls",
 				"marksman",
 				"sqlls",
+				"gopls",
+				"nixd",
 			}
 
 			for _, server in ipairs(servers) do
