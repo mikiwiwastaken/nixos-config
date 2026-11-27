@@ -30,8 +30,6 @@ in
     libnotify
     wl-clipboard
     cliphist
-
-    nixos-artwork.wallpapers.catppuccin-mocha
   ];
 }
 

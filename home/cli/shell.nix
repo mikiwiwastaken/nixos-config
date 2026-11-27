@@ -17,10 +17,36 @@
     };
 
     shellAliases = {
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+
+      ls = "eza --icons auto --group-directories-first";
+      ll = "eza -la --icons auto --group-directories-first --git";
+      la = "eza -a --icons auto --group-directories-first";
+      lh = "eza -l --icons auto --group-directories-first";
+      ld = "eza -D --icons auto";
+      lt = "eza -l -s modified --icons auto";
+      lk = "eza -l -s size --icons auto";
+      tree = "eza --tree --icons auto";
+
+      g = "git";
+      gs = "git status -s";
+      ga = "git add";
+      gaa = "git add --all";
+      gc = "git commit -m";
+      gca = "git commit --amend --no-edit";
+      gco = "git checkout";
+      gcb = "git checkout -b";
+      gp = "git push";
+      gpf = "git push --force-with-lease";
+      gl = "git pull";
+      gd = "git diff";
+      glg = "git log --oneline --graph --decorate --all";
+
+      cat = "bat";
       rebuild = "sudo nixos-rebuild switch --flake ~/nixos#${hostname}";
       clear = "precmd() { precmd() { echo \"\" } } && command clear";
-      ls = "eza --icons auto";
-      cat = "bat";
       ncmpcpp = "$HOME/.local/bin/ncmpcpp-mocha";
     };
 
